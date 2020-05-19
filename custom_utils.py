@@ -190,7 +190,7 @@ import logging
 logger = logging.getLogger(__name__)
 from transformers.data.processors.utils import DataProcessor, InputExample, InputFeatures
 
-def glue_convert_examples_to_features_unused0(examples, tokenizer,
+def glue_convert_examples_to_features(examples, tokenizer,
                                       max_length=512,
                                       task=None,
                                       label_list=None,
@@ -293,7 +293,6 @@ def glue_convert_examples_to_features_unused0(examples, tokenizer,
     if is_tf_dataset:
         def gen():
             for ex in features:
-              ex.input_ids[0] = 1
               yield ({'input_ids': ex.input_ids,
                          'attention_mask': ex.attention_mask,
                          'token_type_ids': ex.token_type_ids},
