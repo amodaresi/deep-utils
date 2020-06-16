@@ -154,8 +154,8 @@ class PearsonCorr(tf.keras.metrics.Metric):
     def update_state(self, x, y, sample_weight=None):
       x = tf.cast(x, tf.float32)
       y = tf.cast(y, tf.float32)
-      x = tf.reshape(x, (-1))
-      y = tf.reshape(y, (-1))
+      x = tf.reshape(x, (-1,))
+      y = tf.reshape(y, (-1,))
 
       m = tf.cast(tf.size(x), tf.float32)
 
