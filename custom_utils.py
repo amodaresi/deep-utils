@@ -157,7 +157,7 @@ class PearsonCorr(tf.keras.metrics.Metric):
       x = tf.squeeze(x)
       y = tf.squeeze(y)
 
-      m = tf.cast(tf.shape(x)[0], tf.float32)
+      m = tf.cast(tf.size(x), tf.float32)
 
       self.ux.assign((self.ux * self.n + tf.reduce_sum(x)) / (self.n + m))
       self.uy.assign((self.uy * self.n + tf.reduce_sum(y)) / (self.n + m))
